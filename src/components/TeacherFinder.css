@@ -1,0 +1,300 @@
+/* TeacherFinder.css */
+body {
+  background-color: #1c66d42c;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.5; /* Slightly reduced line height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.teacher-finder-layout {
+  display: flex;
+  background-color: #fff;
+  border-radius: 12px; /* Slightly smaller border radius */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Adjusted shadow */
+  overflow: hidden;
+  max-width: 1000px; /* Reduced maximum width */
+  width: 90%; /* Take up a bit less width */
+  margin: 20px; /* Reduced margin */
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 300px; /* Reduced sidebar width */
+  background-color: #2a303c;
+  color: #eee;
+  padding: 20px; /* Reduced padding */
+  box-sizing: border-box;
+  overflow-y: auto;
+  border-right: 1px solid #38404d;
+}
+
+.project-logo {
+  width: 70px; /* Smaller logo */
+  display: block;
+  margin: 0 auto 20px; /* Reduced bottom margin */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.main-title {
+  text-align: center;
+  margin-bottom: 20px; /* Reduced bottom margin */
+  font-size: 2rem; /* Reduced font size */
+  font-weight: 700;
+  background: linear-gradient(to right, #7c4dff, #6dd5ed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.search-box {
+  width: 100%;
+  padding: 10px 14px; /* Reduced padding */
+  border: 1px solid #4a5568;
+  border-radius: 8px; /* Reduced border radius */
+  font-size: 0.9rem; /* Reduced font size */
+  margin-bottom: 18px; /* Reduced bottom margin */
+  background-color: #374151;
+  color: #f7fafc;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.search-box:focus {
+  outline: none;
+  border-color: #7c4dff;
+  box-shadow: 0 0 8px rgba(124, 77, 255, 0.5);
+}
+
+/* Teacher List Styles */
+.teacher-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Reduced gap */
+}
+
+.teacher-card {
+  background-color: #374151;
+  color: #f7fafc;
+  padding: 14px; /* Reduced padding */
+  border-radius: 10px; /* Reduced border radius */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Adjusted shadow */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.teacher-card:hover {
+  transform: translateY(-2px); /* Reduced lift */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-details {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Reduced gap */
+}
+
+.status-light {
+  width: 10px; /* Smaller status light */
+  height: 10px; /* Smaller status light */
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.status-light.green {
+  background-color: #66bb6a;
+  box-shadow: 0 0 6px rgba(102, 187, 106, 0.7);
+}
+
+.status-light.orange {
+  background-color: #ffb74d;
+  box-shadow: 0 0 6px rgba(255, 183, 77, 0.7);
+}
+
+.status-light.red {
+  background-color: #e57373;
+  box-shadow: 0 0 6px rgba(229, 115, 115, 0.7);
+}
+
+.status-light.gray {
+  background-color: #9ca3af;
+  box-shadow: 0 0 4px rgba(156, 163, 175, 0.5);
+}
+
+.teacher-details h3 {
+  font-size: 0.9rem; /* Reduced font size */
+  margin-bottom: 3px;
+  color: #f9fafb;
+}
+
+.teacher-room {
+  font-size: 0.7rem; /* Reduced font size */
+  color: #d1d5db;
+  margin-top: 0;
+}
+
+.teacher-card button {
+  background-color: #7c4dff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px; /* Reduced padding */
+  border-radius: 6px; /* Reduced border radius */
+  cursor: pointer;
+  font-size: 0.8rem; /* Reduced font size */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.teacher-card button:hover {
+  background-color: #9575cd;
+}
+
+/* Map Area Styles */
+.map-area {
+  flex-grow: 1;
+  padding: 20px; /* Reduced padding */
+  box-sizing: border-box;
+  background-color: #2a303ca4;
+  border-radius: 0 12px 12px 0; /* Matching reduced border radius */
+}
+
+.map-area h2 {
+  font-size: 1.5rem; /* Reduced font size */
+  color: #374151;
+  margin-bottom: 15px; /* Reduced bottom margin */
+  text-align: center;
+}
+
+.map-container {
+  height: 400px; /* Reduced map height */
+  width: 100%;
+  border-radius: 10px; /* Reduced border radius */
+  margin-top: 10px; /* Reduced top margin */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.098); /* Adjusted shadow */
+}
+
+.open-map-btn {
+  margin-top: 15px; /* Reduced top margin */
+  padding: 10px 15px; /* Reduced padding */
+  background-color: #183564;
+  color: #f9fafb;
+  border: none;
+  border-radius: 6px; /* Reduced border radius */
+  cursor: pointer;
+  font-size: 0.9rem; /* Reduced font size */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.open-map-btn:hover {
+  background-color: #4a5568;
+}
+
+.no-selection-msg,
+.no-results {
+  text-align: center;
+  color: #ffffff;
+  font-style: italic;
+  margin-top: 20px; /* Reduced top margin */
+  font-size: 1rem; /* Reduced font size */
+}
+
+/* Media Query for Mobile Views */
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+  }
+
+  .teacher-finder-layout {
+    border-radius: 12px;
+    margin: 15px;
+    width: 95%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adjusted shadow */
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-right: none;
+    border-bottom: 1px solid #38404d;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .project-logo {
+    width: 50px; /* Even smaller logo on mobile */
+    margin-bottom: 15px;
+  }
+
+  .main-title {
+    font-size: 1.6rem; /* Further reduced title size */
+    margin-bottom: 15px;
+  }
+
+  .search-box {
+    font-size: 0.8rem; /* Further reduced font size */
+    padding: 8px 12px;
+    border-radius: 6px; /* Further reduced border radius */
+    margin-bottom: 12px; /* Further reduced bottom margin */
+  }
+
+  .teacher-list {
+    gap: 8px; /* Further reduced gap */
+  }
+
+  .teacher-card {
+    padding: 10px; /* Further reduced padding */
+    border-radius: 8px; /* Further reduced border radius */
+  }
+
+  .teacher-details {
+    margin-bottom: 8px; /* Further reduced bottom margin */
+    gap: 8px; /* Further reduced gap */
+  }
+
+  .teacher-details h3 {
+    font-size: 0.9rem; /* Maintain slightly larger for readability */
+  }
+
+  .teacher-room {
+    font-size: 0.7rem;
+  }
+
+  .teacher-card button {
+    padding: 6px 10px; /* Further reduced padding */
+    font-size: 0.7rem; /* Further reduced font size */
+    border-radius: 4px; /* Further reduced border radius */
+  }
+
+  .map-area {
+    padding: 15px;
+    border-radius: 0 0 12px 12px; /* Matching reduced border radius */
+  }
+
+  .map-area h2 {
+    font-size: 1.3rem; /* Further reduced font size */
+    margin-bottom: 10px; /* Further reduced bottom margin */
+  }
+
+  .map-container {
+    height: 250px; /* Further reduced map height */
+    margin-top: 8px; /* Further reduced top margin */
+    border-radius: 8px; /* Further reduced border radius */
+  }
+
+  .open-map-btn {
+    margin-top: 10px; /* Further reduced top margin */
+    padding: 8px 12px; /* Further reduced padding */
+    font-size: 0.8rem; /* Further reduced font size */
+    border-radius: 4px; /* Further reduced border radius */
+  }
+
+  .no-selection-msg,
+  .no-results {
+    margin-top: 15px; /* Further reduced top margin */
+    font-size: 0.9rem; /* Further reduced font size */
+  }
+}
