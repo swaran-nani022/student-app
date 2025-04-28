@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+// TeacherFinder.js
+import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
@@ -76,19 +77,20 @@ const TeacherFinder = () => {
   };
 
   return (
-    <div className="teacher-finder-layout">
-      <div className="sidebar">
+    <div className="container">
+      <section className="header-section">
         <img src={logo} alt="Project Logo" className="project-logo" />
-        <h1 className="main-title">🎓 Locate My Professor</h1>
+        <p className="intro-text">Find the right professor quickly and easily with LocateMyProf. See their availability and location on campus.</p>
+      </section>
 
+      <section className="search-list-section">
         <input
-          className="search-box"
           type="text"
           placeholder="Search Professor Name..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-box"
         />
-
         <div className="teacher-list">
           {teachers.length > 0 ? (
             teachers.map((teacher) => (
@@ -97,46 +99,49 @@ const TeacherFinder = () => {
                   <span className={`status-light ${getStatusColor(teacher.status)}`}></span>
                   <div>
                     <h3>{teacher.name}</h3>
-                    <p>Status:<b> {teacher.status}</b></p>
-                    <p className="teacher-room">Room:<b> {teacher.room}</b></p>
+                    <p>Status: {teacher.status}</p>
                   </div>
                 </div>
-                <button onClick={() => handleViewOnMap(teacher)}>📍 View Location</button>
+                <button onClick={() => { handleViewOnMap(teacher); setTimeout(() => { document.getElementById('map-section').scrollIntoView({ behavior: 'smooth' }); }, 200); }}>
+                  View Location
+                </button>
               </div>
             ))
           ) : (
             searchTerm && <p className="no-results">No Professor found matching "{searchTerm}"</p>
           )}
         </div>
-      </div>
+      </section>
 
-      <div className="map-area">
+      <section id="map-section" className="map-section">
+        <h2>Professor Location</h2>
         {selectedTeacher && selectedTeacher.latitude && selectedTeacher.longitude ? (
           <>
-            <h2>{selectedTeacher.name}'s Location</h2>
-            <MapContainer
-              center={[selectedTeacher.latitude, selectedTeacher.longitude]}
-              zoom={15}
-              className="map-container"
-            >
-              <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; OpenStreetMap contributors'
-              />
-              <Marker position={[selectedTeacher.latitude, selectedTeacher.longitude]}>
-                <Popup>
-                  {selectedTeacher.name} - {selectedTeacher.status}
-                </Popup>
-              </Marker>
-            </MapContainer>
+            <div className="map-container">
+              <MapContainer
+                center={[selectedTeacher.latitude, selectedTeacher.longitude]}
+                zoom={15}
+                style={{ height: '100%', width: '100%', borderRadius: '8px' }}
+              >
+                <TileLayer
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  attribution='&copy; OpenStreetMap contributors'
+                />
+                <Marker position={[selectedTeacher.latitude, selectedTeacher.longitude]}>
+                  <Popup>
+                    {selectedTeacher.name} - {selectedTeacher.status}
+                  </Popup>
+                </Marker>
+              </MapContainer>
+            </div>
             <button className="open-map-btn" onClick={openInOpenStreetMap}>
-              🌐 Open in OpenStreetMap
+              Open in OpenStreetMap
             </button>
           </>
         ) : (
           <p className="no-selection-msg">Select a professor to view their location</p>
         )}
-      </div>
+      </section>
     </div>
   );
 };
